@@ -1,0 +1,10 @@
+{
+  "enabledMcpjsonServers": [
+    "context7",
+    "@magicuidesign/mcp",
+    "supabase-tuan",
+    "playwright",
+    "shadcn-ui"
+  ],
+  "enableAllProjectMcpServers": true
+}
