@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 import { Send, Users, Calendar, BarChart } from 'lucide-react';
 import { BarChart as RechartsBarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';

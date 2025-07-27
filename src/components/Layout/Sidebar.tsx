@@ -1,5 +1,8 @@
+'use client'
+
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import {
   LayoutDashboard,
   Send,
@@ -56,7 +59,7 @@ const menuItems = [
 ];
 
 export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onToggle }) => {
-  const location = useLocation();
+  const pathname = usePathname();
 
   return (
     <>
@@ -95,12 +98,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onToggle }) => {
           <ul className="space-y-2">
             {menuItems.map((item) => {
               const Icon = item.icon;
-              const isActive = location.pathname === item.path;
+              const isActive = pathname === item.path;
 
               return (
                 <li key={item.path}>
                   <Link
-                    to={item.path}
+                    href={item.path}
                     onClick={() => window.innerWidth < 1024 && onToggle()}
                     className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
                       isActive

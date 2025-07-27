@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState } from 'react';
 import { Plus, Edit2, Trash2, Zap, Check, X } from 'lucide-react';
 

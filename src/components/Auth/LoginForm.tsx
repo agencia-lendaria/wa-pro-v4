@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword, signUpWithEmailAndPassword } from '../../lib/supabase';
 import { Send, Mail, Lock, User } from 'lucide-react';

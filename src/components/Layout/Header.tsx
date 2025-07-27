@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 import { Menu, Bell, User, LogOut } from 'lucide-react';
 import { signOut } from '../../lib/supabase';
