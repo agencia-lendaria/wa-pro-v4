@@ -27,3 +27,5 @@ dist-ssr
 # Outros
 .mcp.json
 .mcp.json.wsl
+TEST_CREDENTIALS.md
+TEST_*

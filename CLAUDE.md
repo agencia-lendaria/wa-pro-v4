@@ -134,5 +134,36 @@ The application uses a sophisticated database schema with:
 - Encrypted token storage for API credentials
 - Message queuing system for campaign execution
 - Comprehensive audit logging and health monitoring
+- All table names are prefixed with: wa_dispatcher_v4
 
 Refer to the workflow documentation for complete database implementation details.
+
+# Security prompt:
+
+Please check through all the code you just wrote and make sure it follows security best practices. make sure there are no sensitive information in the front and and there are no vulnerabilities that can be exploited
+
+# MCP
+Utilize os MCPs (Model Context Protocol) abaixo para determinadas tarefas.
+supabase -> Utilizar para implementar soluções completas de backend incluindo:
+    - Banco de dados PostgreSQL com RLS (Row Level Security)
+    - Sistema de autenticação (GoTrue) com JWT
+    - API RESTful automática via PostgREST
+    - Armazenamento de arquivos (Storage)
+    - Funcionalidades Realtime para colaboração
+    - Edge Functions para lógica serverless
+    - Seguir convenções snake_case para tabelas e campos
+context7 -> Utilizar para acessar documentação oficial sempre atualizada de bibliotecas e frameworks.
+Ref-suportebemstar -> Use a ferramenta Ref quando seu código precisar de informações ou documentação técnica atualizada sobre APIs, bibliotecas ou frameworks. A ferramenta é ideal para buscar e ler documentações de forma rápida e eficiente em termos de tokens, tanto em fontes públicas quanto privadas. Ela também contém a documentação oficial sempre atualizada de bibliotecas e frameworks e é mais otimizada para buscar exatamente o que precisa.
+@magicuidesign/mcp -> Utilizar para criar e implementar componentes modernos de UI, seguindo boas práticas de design, acessibilidade e responsividade. Priorizar componentes reutilizáveis e consistência visual.
+playwright -> Use esta ferramenta para automatizar interações com navegadores web, incluindo navegação, preenchimento de formulários, cliques em elementos, captura de screenshots e extração de dados de páginas web. O Playwright suporta múltiplos navegadores (Chrome, Firefox, Safari) e pode executar operações tanto em modo headless quanto com interface gráfica. Essa ferramenta é fundamental para realizar testes, ver os erros que aparecem no console para criar planos de ação para corrigir.
+shadcn-ui -> Utilizar a ferramenta MCP para construir interfaces com componentes estilizados via Tailwind CSS.
+  - Importar componentes
+  - Customizar via `components.json` e arquivo de temas
+  - Priorizar composição de componentes pequenos e reutilizáveis
+  - Usar `data-testid` para testes com Playwright
+  - Seguir padrões de acessibilidade (aria-label, roles)
+
+## LOGIN
+Para fazer login na página e realizar testes (arquivo "TEST_CREDENTIALS.md"):
+  - Login: tuan.medeiros@gmail.com
+  - Senha: 123456@Test
