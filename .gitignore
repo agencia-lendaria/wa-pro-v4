@@ -35,3 +35,4 @@ next-env.d.ts
 .mcp.json.wsl
 TEST_CREDENTIALS.md
 TEST_*
+TEMP_*

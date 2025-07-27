@@ -73,23 +73,23 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onToggle }) => {
 
       {/* Sidebar */}
       <div
-        className={`fixed left-0 top-0 h-full bg-white shadow-lg border-r border-gray-200 z-50 w-64 transition-transform duration-300 ease-in-out ${
+        className={`fixed left-0 top-0 h-full bg-white dark:bg-gray-900 shadow-lg border-r border-gray-200 dark:border-gray-700 z-50 w-64 transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : '-translate-x-full lg:-translate-x-full'
         } lg:translate-x-0`}
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-gray-200">
+        <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
           <div className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
               <Send className="w-5 h-5 text-white" />
             </div>
-            <span className="text-xl font-bold text-gray-900">WA Dispatcher</span>
+            <span className="text-xl font-bold text-gray-900 dark:text-white">WA Dispatcher</span>
           </div>
           <button
             onClick={onToggle}
-            className="lg:hidden p-1 rounded-md hover:bg-gray-100"
+            className="lg:hidden p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
           >
-            <X className="w-5 h-5" />
+            <X className="w-5 h-5 text-gray-700 dark:text-gray-300" />
           </button>
         </div>
 
@@ -107,8 +107,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onToggle }) => {
                     onClick={() => window.innerWidth < 1024 && onToggle()}
                     className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
                       isActive
-                        ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-700'
-                        : 'text-gray-700 hover:bg-gray-50'
+                        ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 border-r-2 border-blue-700 dark:border-blue-400'
+                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
                     }`}
                   >
                     <Icon className="w-5 h-5" />
