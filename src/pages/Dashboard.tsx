@@ -15,15 +15,15 @@ export const Dashboard: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+        <div className="bg-white p-4 sm:p-6 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm font-medium text-gray-600">Total de Envios</p>
-              <p className="text-3xl font-bold text-gray-900">12,436</p>
+            <div className="min-w-0 flex-1">
+              <p className="text-sm font-medium text-gray-600 truncate">Total de Envios</p>
+              <p className="text-2xl sm:text-3xl font-bold text-gray-900">12,436</p>
             </div>
-            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-              <Send className="w-6 h-6 text-blue-600" />
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 ml-3">
+              <Send className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
             </div>
           </div>
           <div className="mt-4">
@@ -32,14 +32,14 @@ export const Dashboard: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+        <div className="bg-white p-4 sm:p-6 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm font-medium text-gray-600">Taxa de Entrega</p>
-              <p className="text-3xl font-bold text-gray-900">94.2%</p>
+            <div className="min-w-0 flex-1">
+              <p className="text-sm font-medium text-gray-600 truncate">Taxa de Entrega</p>
+              <p className="text-2xl sm:text-3xl font-bold text-gray-900">94.2%</p>
             </div>
-            <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-              <BarChart className="w-6 h-6 text-green-600" />
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0 ml-3">
+              <BarChart className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
             </div>
           </div>
           <div className="mt-4">
@@ -48,14 +48,14 @@ export const Dashboard: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+        <div className="bg-white p-4 sm:p-6 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm font-medium text-gray-600">Contatos Ativos</p>
-              <p className="text-3xl font-bold text-gray-900">1,847</p>
+            <div className="min-w-0 flex-1">
+              <p className="text-sm font-medium text-gray-600 truncate">Contatos Ativos</p>
+              <p className="text-2xl sm:text-3xl font-bold text-gray-900">1,847</p>
             </div>
-            <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-              <Users className="w-6 h-6 text-purple-600" />
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0 ml-3">
+              <Users className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600" />
             </div>
           </div>
           <div className="mt-4">
@@ -64,14 +64,14 @@ export const Dashboard: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+        <div className="bg-white p-4 sm:p-6 rounded-lg shadow-sm border border-gray-200">
           <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm font-medium text-gray-600">Campanhas Ativas</p>
-              <p className="text-3xl font-bold text-gray-900">23</p>
+            <div className="min-w-0 flex-1">
+              <p className="text-sm font-medium text-gray-600 truncate">Campanhas Ativas</p>
+              <p className="text-2xl sm:text-3xl font-bold text-gray-900">23</p>
             </div>
-            <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
-              <Calendar className="w-6 h-6 text-orange-600" />
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0 ml-3">
+              <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-orange-600" />
             </div>
           </div>
           <div className="mt-4">
@@ -82,10 +82,11 @@ export const Dashboard: React.FC = () => {
       </div>
 
       {/* Charts */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 lg:gap-6">
+        <div className="bg-white p-4 sm:p-6 rounded-lg shadow-sm border border-gray-200">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Envios vs Entregas</h3>
-          <ResponsiveContainer width="100%" height={300}>
+          <div className="h-64 sm:h-80">
+            <ResponsiveContainer width="100%" height="100%">
             <RechartsBarChart data={statsData}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="name" />
@@ -94,10 +95,11 @@ export const Dashboard: React.FC = () => {
               <Bar dataKey="envios" fill="#3B82F6" />
               <Bar dataKey="entregues" fill="#10B981" />
             </RechartsBarChart>
-          </ResponsiveContainer>
+            </ResponsiveContainer>
+          </div>
         </div>
 
-        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+        <div className="bg-white p-4 sm:p-6 rounded-lg shadow-sm border border-gray-200">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Campanhas Recentes</h3>
           <div className="space-y-4">
             {[
@@ -106,14 +108,14 @@ export const Dashboard: React.FC = () => {
               { name: 'Newsletter Semanal', status: 'Agendada', sent: 0, delivered: 0 },
               { name: 'Lançamento Produto', status: 'Concluída', sent: 890, delivered: 842 },
             ].map((campaign, index) => (
-              <div key={index} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
-                <div>
-                  <h4 className="font-medium text-gray-900">{campaign.name}</h4>
+              <div key={index} className="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-gray-50 rounded-lg gap-3">
+                <div className="min-w-0 flex-1">
+                  <h4 className="font-medium text-gray-900 truncate">{campaign.name}</h4>
                   <p className="text-sm text-gray-600">
                     {campaign.sent > 0 ? `${campaign.sent} enviadas, ${campaign.delivered} entregues` : 'Aguardando execução'}
                   </p>
                 </div>
-                <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                <span className={`px-3 py-1 rounded-full text-xs font-medium self-start sm:self-center whitespace-nowrap ${
                   campaign.status === 'Concluída' ? 'bg-green-100 text-green-800' :
                   campaign.status === 'Em Andamento' ? 'bg-blue-100 text-blue-800' :
                   'bg-yellow-100 text-yellow-800'

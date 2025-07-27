@@ -13,16 +13,17 @@ export const Header: React.FC<HeaderProps> = ({ onMenuToggle, user }) => {
   };
 
   return (
-    <header className="bg-white shadow-sm border-b border-gray-200 px-6 py-4">
-      <div className="flex items-center justify-between">
+    <header className="bg-white shadow-sm border-b border-gray-200 px-4 sm:px-6 py-4 sticky top-0 z-30">
+      <div className="flex items-center justify-between max-w-7xl mx-auto">
         <div className="flex items-center space-x-4">
           <button
             onClick={onMenuToggle}
-            className="lg:hidden p-2 rounded-md hover:bg-gray-100"
+            className="p-2 rounded-md hover:bg-gray-100 transition-colors"
+            aria-label="Toggle sidebar"
           >
             <Menu className="w-5 h-5" />
           </button>
-          <h1 className="text-2xl font-semibold text-gray-900">Dashboard</h1>
+          <h1 className="text-xl sm:text-2xl font-semibold text-gray-900">Dashboard</h1>
         </div>
 
         <div className="flex items-center space-x-4">

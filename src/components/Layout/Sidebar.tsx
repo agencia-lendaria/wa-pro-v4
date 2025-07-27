@@ -70,9 +70,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onToggle }) => {
 
       {/* Sidebar */}
       <div
-        className={`fixed left-0 top-0 h-full bg-white shadow-lg border-r border-gray-200 z-50 transition-transform duration-300 ease-in-out ${
-          isOpen ? 'translate-x-0' : '-translate-x-full'
-        } lg:translate-x-0 lg:static lg:z-auto w-64`}
+        className={`fixed left-0 top-0 h-full bg-white shadow-lg border-r border-gray-200 z-50 w-64 transition-transform duration-300 ease-in-out ${
+          isOpen ? 'translate-x-0' : '-translate-x-full lg:-translate-x-full'
+        } lg:translate-x-0`}
       >
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
