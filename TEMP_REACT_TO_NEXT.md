@@ -111,4 +111,9 @@ A estimativa de ~21 horas é otimista e adequada para uma **aplicação pequena*
 - **Migre Incrementalmente:** Não tente fazer tudo de uma vez. Comece pelas páginas mais simples.
 - **Abrace o "Server-First":** Pense primeiro em como fazer algo no servidor (Server Component). Use `"use client"` apenas quando for estritamente necessário.
 - **Documente as Mudanças:** Mantenha um registro das decisões tomadas para alinhar a equipe.
-
+- Ao final de cada tarefa concluida com sucesso. Faça marcação no checklist
+- Utilize os MCP para te auxiliar nas tarefas.
+- Quando precisar realizar testes no navegador, utilize a ferramenta MCP **playwright**. Se certifique de estar acessando a URL na porta correta.
+    Para fazer login na página e realizar testes (arquivo "TEST_CREDENTIALS.md"):
+    - Login: tuan.medeiros@gmail.com
+    - Senha: 123456@Test
