@@ -4,15 +4,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-WhatsApp Dispatcher Pro v4 - A React TypeScript application for managing WhatsApp campaigns via multiple APIs. Built with Vite, Supabase backend, and Tailwind CSS.
+WhatsApp Dispatcher Pro v4 - A Next.js 15 TypeScript application for managing WhatsApp campaigns via multiple APIs. Built with Next.js App Router, Supabase backend, and Tailwind CSS.
 
 ## Development Commands
 
 ### Core Commands
-- `npm run dev` - Start development server with Vite
+- `npm run dev` - Start development server with Next.js
 - `npm run build` - Build for production
-- `npm run lint` - Run ESLint checks
-- `npm run preview` - Preview production build
+- `npm run start` - Start production server
+- `npm run lint` - Run Next.js linting
+- `npm run lint:es` - Run ESLint checks
 
 ### Testing
 No test framework is currently configured. When adding tests, update this file with the test commands.
@@ -20,11 +21,11 @@ No test framework is currently configured. When adding tests, update this file w
 ## Technology Stack
 
 ### Frontend
-- **React 18** with TypeScript
-- **Vite** as build tool and dev server
-- **React Router DOM** for client-side routing
+- **Next.js 15** with TypeScript and App Router
+- **React 19** with TypeScript
 - **Tailwind CSS** for styling
 - **Lucide React** for icons
+- **next-themes** for dark mode support
 
 ### Backend & Services
 - **Supabase** for authentication, database, and realtime features
@@ -33,7 +34,7 @@ No test framework is currently configured. When adding tests, update this file w
 - **Date-fns** for date utilities
 
 ### Configuration
-- **ESLint** with TypeScript and React plugins
+- **ESLint** with Next.js and TypeScript plugins
 - **PostCSS** with Tailwind CSS and Autoprefixer
 - **TypeScript** with strict configuration
 
@@ -41,26 +42,42 @@ No test framework is currently configured. When adding tests, update this file w
 
 ### Application Structure
 ```
-src/
-├── components/           # Reusable UI components
-│   ├── Auth/            # Authentication forms
-│   └── Layout/          # Layout components (Header, Sidebar, Layout)
-├── hooks/               # Custom React hooks
-├── lib/                 # Library configurations and utilities
-├── pages/               # Route components
-├── types/               # TypeScript type definitions
-└── main.tsx            # Application entry point
+app/                     # Next.js App Router pages
+├── api/                 # API routes (future use)
+├── apis/               # APIs management page
+├── campaigns/          # Campaign management page
+├── contacts/           # Contact management page
+├── reports/            # Reports page
+├── schedules/          # Scheduling page
+├── settings/           # Settings page
+├── globals.css         # Global styles
+├── layout.tsx          # Root layout with providers
+├── page.tsx            # Main page (auth + dashboard)
+└── providers.tsx       # Theme and context providers
+
+src/                     # Legacy structure (being migrated)
+├── components/          # Reusable UI components
+│   ├── Auth/           # Authentication forms
+│   ├── Layout/         # Layout components (Header, Sidebar, Layout)
+│   └── ThemeToggle.tsx # Dark mode toggle
+├── hooks/              # Custom React hooks
+├── lib/                # Library configurations and utilities
+├── pages/              # Route components (legacy)
+├── types/              # TypeScript type definitions
+└── main.tsx           # Legacy entry point
 ```
 
 ### Key Components
-- **Layout System**: Header, Sidebar, and main Layout wrapper
+- **Layout System**: Header, Sidebar, and main Layout wrapper in src/components/Layout/
 - **Authentication**: LoginForm component with Supabase auth
-- **Pages**: Dashboard, Campaigns, APIs, and placeholder pages for future features
+- **Theme Management**: ThemeProvider with next-themes for dark mode
+- **Pages**: Dashboard, Campaigns, APIs, and feature pages
 
 ### Data Flow
 - **Authentication**: Custom `useAuth` hook manages user state via Supabase
-- **Routing**: React Router with protected routes requiring authentication
+- **Routing**: Next.js App Router with file-based routing
 - **State Management**: Local component state and React hooks (no global state library)
+- **Client Components**: Components using hooks marked with `"use client"` directive
 
 ### API Integration
 The application interfaces with multiple WhatsApp APIs:
@@ -74,22 +91,24 @@ Comprehensive workflow documentation exists in:
 - `WORKFLOW_CAMPANHAS.md` - Campaign management workflow
 
 Key tables include:
-- `api_configurations` - WhatsApp API credentials and settings
-- `campaigns` - Campaign definitions and status
-- `campaign_messages` - Message templates for campaigns
-- `campaign_contacts` - Contact lists for campaigns
-- `message_queue` - Processing queue for message delivery
+- `wa_dispatcher_v4_api_configurations` - WhatsApp API credentials and settings
+- `wa_dispatcher_v4_campaigns` - Campaign definitions and status
+- `wa_dispatcher_v4_campaign_messages` - Message templates for campaigns
+- `wa_dispatcher_v4_campaign_contacts` - Contact lists for campaigns
+- `wa_dispatcher_v4_message_queue` - Processing queue for message delivery
 
 ## Environment Variables
 
 Required Supabase configuration:
-- `VITE_SUPABASE_URL` - Supabase project URL
-- `VITE_SUPABASE_ANON_KEY` - Supabase anonymous key
+- `NEXT_PUBLIC_SUPABASE_URL` - Supabase project URL
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY` - Supabase anonymous key
 
 ## Development Patterns
 
 ### Component Structure
 - Functional components with TypeScript
+- Server Components by default, Client Components when needed (hooks, browser APIs)
+- Use `"use client"` directive for components requiring client-side features
 - Custom hooks for stateful logic
 - Props interfaces defined inline or in types/
 
@@ -97,6 +116,7 @@ Required Supabase configuration:
 - Protected routes requiring user authentication
 - Automatic redirection to login when unauthenticated
 - Loading states during auth verification
+- Supabase Auth integration
 
 ### Error Handling
 - Try-catch blocks for async operations
@@ -105,20 +125,22 @@ Required Supabase configuration:
 
 ### Styling Approach
 - Tailwind CSS utility classes
+- Dark mode support with next-themes
 - Responsive design patterns
 - Loading spinners and interactive states
 
 ## Key Files
 
 ### Configuration
-- `vite.config.ts` - Vite configuration with React plugin
+- `next.config.js` - Next.js configuration
 - `tailwind.config.js` - Tailwind CSS configuration
-- `eslint.config.js` - ESLint with TypeScript and React rules
-- `tsconfig.json` - TypeScript configuration with references
+- `eslint.config.js` - ESLint with Next.js and TypeScript rules
+- `tsconfig.json` - TypeScript configuration
 
 ### Core Application
-- `src/main.tsx` - Application entry point with React.StrictMode
-- `src/App.tsx` - Main app component with routing and auth logic
+- `app/layout.tsx` - Root layout with providers and metadata
+- `app/page.tsx` - Main page with auth logic and dashboard
+- `app/providers.tsx` - Theme provider setup
 - `src/lib/supabase.ts` - Supabase client and auth helpers
 - `src/hooks/useAuth.ts` - Authentication state management
 - `src/types/index.ts` - TypeScript type definitions
@@ -126,6 +148,7 @@ Required Supabase configuration:
 ### Business Logic Documentation
 - `WORKFLOW_API.md` - Complete API configuration and testing workflows
 - `WORKFLOW_CAMPANHAS.md` - Campaign creation and execution workflows
+- `PRD.md` - Complete product requirements document
 
 ## Database Schema Notes
 
