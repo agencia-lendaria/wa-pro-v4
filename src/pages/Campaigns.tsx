@@ -215,7 +215,9 @@ export const Campaigns: React.FC = () => {
                     
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-3">
                       <div className="text-sm text-gray-600">
-                        <span className="font-medium">API:</span> {campaign.api_config_id}
+                        <span className="font-medium">API:</span> {
+                          campaign.wa_dispatcher_v4_api_configurations?.name || 'Configuração não encontrada'
+                        }
                       </div>
                       <div className="text-sm text-gray-600">
                         {campaign.scheduled_at ? (

@@ -11,6 +11,11 @@ export interface Campaign {
   completed_at?: string;
   created_at: string;
   updated_at: string;
+  // Dados da configuração de API via JOIN
+  wa_dispatcher_v4_api_configurations?: {
+    name: string;
+    api_type: string;
+  };
 }
 
 export interface CampaignMessage {

@@ -21,7 +21,13 @@ export class CampaignService {
 
     const { data, error } = await supabase
       .from('wa_dispatcher_v4_campaigns')
-      .select('*')
+      .select(`
+        *,
+        wa_dispatcher_v4_api_configurations (
+          name,
+          api_type
+        )
+      `)
       .eq('user_id', user.id)
       .order('created_at', { ascending: false });
 
