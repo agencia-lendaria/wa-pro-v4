@@ -157,7 +157,7 @@ The application uses a sophisticated database schema with:
 - Encrypted token storage for API credentials
 - Message queuing system for campaign execution
 - Comprehensive audit logging and health monitoring
-- All table names are prefixed with: wa_dispatcher_v4
+- All backend (table names, functions, CRON, and triggers) are prefixed with: wa_dispatcher_v4
 
 Refer to the workflow documentation for complete database implementation details.
 
