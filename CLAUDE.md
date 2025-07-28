@@ -190,3 +190,7 @@ shadcn-ui -> Utilizar a ferramenta MCP para construir interfaces com componentes
 Para fazer login na página e realizar testes (arquivo "TEST_CREDENTIALS.md"):
   - Login: tuan.medeiros@gmail.com
   - Senha: 123456@Test
+
+# CHANGELOGS
+
+At the end of each task, create a file in the "changelog" folder with the details of the task execution to be used as a reference for future implementations.

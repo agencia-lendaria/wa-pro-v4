@@ -30,9 +30,13 @@ next-env.d.ts
 *.sw?
 .env
 
-# Outros
+# MCP configuration (contains sensitive tokens)
 .mcp.json
 .mcp.json.wsl
+
+# Documentation files (implementation guides)
+Tela_Login.md
 TEST_CREDENTIALS.md
 TEST_*
 TEMP_*
+changelog
